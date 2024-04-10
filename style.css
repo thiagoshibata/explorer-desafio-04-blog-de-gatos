@@ -24,10 +24,11 @@ input {
 body {
   font-size: 1.6rem;
 }
-.page {
+
+#page {
   min-height: 43rem;
 }
-.page header {
+#page header {
   display: flex;
   text-align: center;
   align-items: center;
@@ -35,6 +36,9 @@ body {
   padding: 1.2rem 2.8rem;
   gap: 2.5rem;
   background-color: var(--brand-colors-explorer-dark);
+}
+header {
+  grid-area: header;
 }
 
 .input-wrapper input {
@@ -74,6 +78,9 @@ body {
   max-width: 43rem;
   margin: 0 auto;
 }
+main {
+  grid-area: main;
+}
 main h1 {
   font-size: 2.4rem;
   font-weight: bold;
@@ -93,6 +100,8 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  grid-area: aside;
 }
 
 aside h1 {
@@ -119,6 +128,8 @@ footer {
   background-color: var(--brand-colors-exeplorer-input);
   padding: 1.6rem;
   margin-top: 3.8rem;
+
+  grid-area: footer;
 }
 footer p {
   text-align: center;
@@ -126,4 +137,15 @@ footer p {
   font-weight: 600;
 
   padding: 0.8rem;
+}
+
+@media (min-width: 1220px) {
+  #page {
+    display: grid;
+
+    grid-template-areas:
+      "header header header"
+      "main main aside"
+      "footer footer footer";
+  }
 }
