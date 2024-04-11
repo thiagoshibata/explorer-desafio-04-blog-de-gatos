@@ -25,25 +25,36 @@ body {
   font-size: 1.6rem;
 }
 
-#page {
-  min-height: 43rem;
+.container {
+  width: min(43rem, 100%);
+  margin: 0 auto;
+
+  border: 1px solid red;
 }
-#page header {
+
+
+header {
+  width: 100%;
+  background-color: var(--brand-colors-explorer-dark);
+  margin-bottom: 4.4rem;
+  grid-area: header;
+}
+header div.container {
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   padding: 1.2rem 2.8rem;
   gap: 2.5rem;
-  background-color: var(--brand-colors-explorer-dark);
 }
-header {
-  grid-area: header;
+header form {
+  width: 100%;
+  flex: 1;
 }
 
 .input-wrapper input {
   width: 100%;
-  padding: 1.2rem 7.3rem 1.2rem 1.4rem;
+  padding: 1.2rem 1.4rem;
   height: 4rem;
   border: none;
   border-radius: 0.4rem;
@@ -58,6 +69,7 @@ header {
 .input-wrapper input::placeholder {
   color: var(--brand-colors-explorer-white);
 }
+
 .input-wrapper label {
   width: 1px;
   height: 1px;
@@ -74,26 +86,34 @@ header {
   border-radius: 50%;
 }
 
-.container {
-  max-width: 43rem;
-  margin: 0 auto;
-}
-main {
+main.container {
+  margin-bottom: 3.4rem;
   grid-area: main;
 }
-main h1 {
+.article-wrapper {
+  padding-left: 2.2rem;
+}
+
+main.container img {
+  width: 100%;
+  margin-bottom: 3.1rem;
+}
+main.container h1 {
   font-size: 2.4rem;
   font-weight: bold;
   line-height: 3.8rem;
-  margin: 3.1rem 6.2rem 0.8rem 2.2rem;
+  margin-bottom: 0.8rem;
 }
 
-main p {
+.button-wrapper {
+  display: flex;
+  gap: 1.2rem;
+}
+
+main.container p {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.5rem;
-
-  margin: 3.1rem 2.6rem 3.4rem 2.2rem;
 }
 
 aside {
@@ -111,6 +131,11 @@ aside h1 {
   display: flex;
   margin: 0 2.6rem 0 2.2rem;
   gap: 1.6rem;
+}
+
+.articles img {
+  width: 100%;
+  object-fit: cover;
 }
 
 .articles h2 {
@@ -140,12 +165,20 @@ footer p {
 }
 
 @media (min-width: 1220px) {
-  #page {
+  #app {
     display: grid;
 
     grid-template-areas:
       "header header header"
       "main main aside"
       "footer footer footer";
+    margin: 0 auto;
   }
+
+  header div.container {
+    width: 112rem;
+  }
+
+  
+  
 }
