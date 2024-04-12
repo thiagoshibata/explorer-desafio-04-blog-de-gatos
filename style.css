@@ -11,6 +11,7 @@
   font-size: 62.5%;
 
   --brand-colors-explorer-dark: #065e7c;
+  --Plataform-Aliases-Shape-principal: #202024;
   --brand-colors-exeplorer-input: #387e96;
   --brand-colors-explorer-white: #ffffff;
 }
@@ -28,7 +29,6 @@ body {
 .container {
   width: min(43rem, 100%);
   margin: 0 auto;
-
 }
 
 header {
@@ -94,6 +94,8 @@ main.container {
 main.container img {
   width: 100%;
   margin-bottom: 3.1rem;
+
+  aspect-ratio: 16/9;
 }
 main.container h1 {
   font-size: 2.4rem;
@@ -122,23 +124,37 @@ aside {
 }
 
 aside h1 {
-  margin: 0 2.6rem 0 2.2rem;
+  color: var(--Plataform-Aliases-Shape-principal);
+  font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 3.8rem;
 }
 .articles {
   display: flex;
-  margin: 0 2.6rem 0 2.2rem;
+  /* margin: 0 2.6rem 0 2.2rem; */
   gap: 1.6rem;
 }
 
 .articles img {
-  width: 100%;
+  width: 15.1rem;
+  border-radius: 0.5rem;
+  aspect-ratio: 16/9;
   object-fit: cover;
+
+  transition: all 200ms ease-out;
+}
+.articles img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
 }
 
-.articles h2 {
+.articles a {
   font-size: 1.8rem;
   font-weight: 700;
   list-style: 2.8rem;
+  cursor: pointer;
+}
+.articles a:hover {
+  text-decoration: underline;
 }
 .articles p {
   font-size: 1.4rem;
@@ -148,6 +164,7 @@ aside h1 {
 
 footer {
   background-color: var(--brand-colors-exeplorer-input);
+
   padding: 1.6rem;
   margin-top: 3.8rem;
 
@@ -161,6 +178,7 @@ footer p {
   padding: 0.8rem;
 }
 
+/* RESPONSIVIDADE */
 @media (min-width: 1220px) {
   #content {
     width: 122.4rem;
@@ -169,8 +187,7 @@ footer p {
     display: grid;
     grid-template-areas: "main aside";
     place-items: start;
-    gap: 3.4rem
-
+    gap: 3.4rem;
   }
 
   header div.container {
@@ -180,5 +197,35 @@ footer p {
   main.container {
     width: min(800px);
   }
-  
+}
+
+/* ANIMAÇÕES */
+header {
+  --startY: -100%;
+  animation: move 0.5s;
+}
+
+footer {
+  --startY: 100%;
+  animation: move 0.5s;
+}
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+.articles {
+  --delay: 0.4s;
+  animation: appear 0.6s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
